@@ -1,0 +1,5 @@
+
+One way would be to use enscript followed by ps2pdf
+
+enscript -p file.ps file.txt
+ps2pdf file.ps file.pdf
