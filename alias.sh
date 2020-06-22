@@ -7,7 +7,7 @@ alias l='ls'
 alias list='ls'
 alias add='sudo pacman -S'
 alias 69='./nice.sh'
-alias ping-test='ping -c 3 archlinux.org'
+alias ping-test='ping -c 3 google.com'
 alias orphans='sudo pacman -Qdtq'
 
 mkcd ()
