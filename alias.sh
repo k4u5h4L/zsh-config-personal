@@ -7,7 +7,13 @@ alias l='ls'
 alias list='ls'
 alias add='sudo pacman -S'
 alias ping-test='ping -c 3 google.com'
+alias pt='ping -c 2 google.com'
 alias orphans='sudo pacman -Qdtq'
+alias pls='sudo'
+alias install='sudo pacman -S'
+alias check-gpu-mem='nvidia-smi'
+alias open-mariadb='sudo mysql -h localhost -u root'
+alias nf='neofetch'
 
 list-pacman-cache() {
         echo "Number of pacman cache packages:"
@@ -28,6 +34,11 @@ clean-pacman-cache() {
 }
 
 alias clean-cache='clean-pacman-cache'
+
+git-commit () {
+        git add .
+        git commit -m $1
+}
 
 mkcd ()
 {
@@ -69,4 +80,3 @@ activate-c() {
 }
 
 alias conda-act='activate-c'
-
