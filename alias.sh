@@ -15,29 +15,41 @@ alias check-gpu-mem='nvidia-smi'
 alias open-mariadb='sudo mysql -h localhost -u root'
 alias nf='neofetch'
 
-list-pacman-cache() {
-        echo "Number of pacman cache packages:"
-        sudo ls /var/cache/pacman/pkg/ | wc -l
+alias start-mongo='sudo systemctl start mongodb'
+alias start-maria='sudo systemctl start mariadb'
 
-        echo "Amount of storage used:"
-        du -sh /var/cache/pacman/pkg/
+list-pacman-cache() {
+	echo "Number of pacman cache packages:"
+	sudo ls /var/cache/pacman/pkg/ | wc -l
+
+	echo "Amount of storage used:"
+	du -sh /var/cache/pacman/pkg/
 }
 
 alias check-cache='list-pacman-cache'
 
 clean-pacman-cache() {
-        echo "Cleaning pacman cache except last one version"
-        sudo paccache -rk 1
+	echo "Cleaning pacman cache except last one version"
+	sudo paccache -rk 1
 
-        echo "Cleaning pacman cache of uninstalled packages"
-        sudo pacman -Sc
+	echo "Cleaning pacman cache of uninstalled packages"
+	sudo pacman -Sc
 }
 
 alias clean-cache='clean-pacman-cache'
 
 git-commit () {
-        git add .
-        git commit -m $1
+	git add .
+	git commit -m $1
+}
+
+git-remote-change() {
+	git remote rm origin
+	git remote add origin $1
+}
+
+check-devices() {
+	sudo nmap -sn 192.168.1.0/24
 }
 
 mkcd ()
@@ -57,9 +69,11 @@ cdl() {
 }
 
 CD() {
-        cd "$1"; ls;
+	cd "$1"; ls;
 }
 # alias cd='CD'
+
+alias eslint-init='./node_modules/.bin/eslint --init'
 
 alias run='~/run.sh'
 alias topdf='/usr/bin/topdf.sh'
@@ -74,9 +88,26 @@ alias pipes='sh /home/sl4ught3r/pipes.sh'
 alias nmn='nodemon'
 alias weather='curl http://wttr.in/$1'
 alias conda-deact='conda deactivate'
+alias stop-maria='sudo systemctl stop mariadb.service'
 
 activate-c() {
-        conda activate $1 
+	conda activate $1 
+}
+
+conda-create-env() {
+	conda create --name $1
 }
 
 alias conda-act='activate-c'
+
+create-venv() {
+	python3 -m venv $1
+	# mv $1 ~/venvs/$1/
+}
+start-venv() {
+	source $1/bin/activate
+}
+
+alias list-venvs='ls ~/venvs/'
+
+alias stop-venv='deactivate'
