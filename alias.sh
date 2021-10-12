@@ -126,6 +126,8 @@ extract-rar() {
 
 alias stop-venv='deactivate'
 
+alias python-serve='python -m http.server 8000'
+
 alias download-dir='wget --recursive --no-parent'
 alias download-dir-no-index='wget -r -np -R "index.html*"'
 
