@@ -62,3 +62,5 @@ else
     echo "Please specify a .c or .cpp file to compile and execute."
 
 fi
+
+# add more programs if required
