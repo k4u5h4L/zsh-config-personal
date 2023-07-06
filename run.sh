@@ -25,8 +25,6 @@ then
 
             ./a.out
 
-
-
         else
 
             echo "Compilation stopped"
