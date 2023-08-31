@@ -162,6 +162,10 @@ alias open-emulator='emulator -avd Pixel_4_API_30'
 # alias nvm='~/.nvm/nvm-exec'
 alias how-big-is='du -sh'
 
+whats-my-ip {
+        curl 'https://api.ipify.org?format=json'
+}
+
 jdk() {
 	jenv global $1
 	zsh
