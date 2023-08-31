@@ -131,6 +131,10 @@ alias python-serve='python -m http.server 8000'
 alias download-dir='wget --recursive --no-parent'
 alias download-dir-no-index='wget -r -np -R "index.html*"'
 
+whats-my-ip {
+        curl 'https://api.ipify.org?format=json'
+}
+
 alias open-postgres='sudo -iu postgres'
 alias start-postgres='sudo systemctl start postgresql.service'
 alias stop-postgres='sudo systemctl stop postgresql.service'
